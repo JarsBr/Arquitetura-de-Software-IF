@@ -15,7 +15,7 @@ public class LoginUser {
 
     public User login(String email, String password, String name) throws NotAllowedException {
         User user = userRepository.findByEmail(email).orElseThrow(() -> new NotAllowedException("Not allowed"));
-        String hashedPassword = passwordEncoder.encoder(email + password);
+        String hashedPassword = passwordEncoder.encode(email + password);
         if (!user.getPassword().equals(hashedPassword)) throw  new NotAllowedException("Not allowed");
         return user;
     }

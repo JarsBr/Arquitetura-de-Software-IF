@@ -1,6 +1,7 @@
 package br.ifg.urutai.config;
 
 import br.ifg.urutai.adapter.encoder.Sha256PasswordEncoder;
+import br.ifg.urutai.adapter.idgenerator.JugIdGenerator;
 import br.ifg.urutai.adapter.idgenerator.UuidGenerator;
 import br.ifg.urutai.adapter.repository.InMemoryUserRepository;
 import br.ifg.urutai.usercase.LoginUser;
@@ -8,7 +9,7 @@ import br.ifg.urutai.usercase.port.*;
 
 public class ManualConfig {
     private final UserRepository userRepository = new InMemoryUserRepository();
-    private final IdGenerator idGenerator = new UuidGenerator();
+    private final IdGenerator idGenerator = new JugIdGenerator();
     private final PasswordEncoder passwordEncoder = new Sha256PasswordEncoder();
 
 
