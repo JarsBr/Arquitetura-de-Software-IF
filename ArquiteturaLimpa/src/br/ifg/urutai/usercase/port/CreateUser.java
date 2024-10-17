@@ -10,11 +10,12 @@ public final class CreateUser {
     private final PasswordEncoder passwordEncoder;
     private final IdGenerator idGenerator;
 
-    public CreateUser(final UserRepository repository, final PasswordEncoder passwordEncoder, final IdGenerator idGenerator, UserRepository repository1, PasswordEncoder passwordEncoder1, IdGenerator idGenerator1){
-        this.repository = repository1;
-        this.passwordEncoder = passwordEncoder1;
-        this.idGenerator = idGenerator1;
+    public CreateUser(final UserRepository repository, final PasswordEncoder passwordEncoder, final IdGenerator idGenerator){
+        this.repository = repository;
+        this.passwordEncoder = passwordEncoder;
+        this.idGenerator = idGenerator;
     }
+
 
     public User create(final User user) throws UserAlreadyExistsException, UserValidatorException {
         UserValidator.validateCreateUser(user);
@@ -24,7 +25,7 @@ public final class CreateUser {
         User userToSave = User.builder()
                 .id(idGenerator.generate())
                 .email(user.getEmail())
-                .password(passwordEncoder.encoder(user.getEmail() + user.getPassword()))
+                .password(passwordEncoder.encode(user.getEmail() + user.getPassword()))
                 .lastName(user.getLastName())
                 .firstName(user.getFirstName())
                 .build();
