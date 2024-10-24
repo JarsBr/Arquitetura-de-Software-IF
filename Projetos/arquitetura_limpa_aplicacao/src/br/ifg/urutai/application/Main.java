@@ -1,8 +1,13 @@
 package br.ifg.urutai.application;
 
+
+import br.ifg.urutai.config.ManualConfig;
+import br.ifg.urutai.entity.User;
+import br.ifg.urutai.usercase.LoginUser;
+import br.ifg.urutai.usercase.port.*;
+import br.ifg.urutai.usercase.validator.UserValidatorException;
 import java.util.List;
 import java.util.Optional;
-
 
 public class Main {
     public static void main(String[] args) throws UserAlreadyExistsException, UserValidatorException, NotAllowedException {

@@ -1,4 +1,4 @@
-package repository;
+package br.ifg.urutai.repository;
 
 import br.ifg.urutai.entity.User;
 import br.ifg.urutai.usercase.port.UserRepository;
