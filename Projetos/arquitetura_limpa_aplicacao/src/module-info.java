@@ -1,0 +1,2 @@
+module arquitetura.limpa.aplicacao {
+}
